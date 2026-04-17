@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — When Two Dots Collide, They Slightly Alter Each Other</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+  --overlayAccent:#cb2c01;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--overlayAccent);
+}
+
+.heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:32ch;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:var(--overlayAccent);
+}
+
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:0 auto;
+  text-align:center;
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.section{
+  margin-bottom:46px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+.courseGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:42px;
+  align-items:start;
+  max-width: var(--wrap);
+}
+
+.courseCol{
+  min-width:0;
+}
+
+.courseCol p{
+  max-width:58ch;
+}
+
+.sectionTitle{
+  font-family:"Junicode", serif;
+  font-size:22px;
+  line-height:1.2;
+  margin:34px 0 10px;
+  font-weight:400;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+.kw{
+  font-weight:600;
+}
+
+.toolLink{
+  display:inline-block;
+  margin-top:14px;
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid var(--text);
+  padding-bottom:2px;
+}
+
+.hrSoft{
+  height:1px;
+  background:var(--hair);
+  margin:34px 0 34px;
+}
+
+.mini{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+}
+
+@media (max-width: 860px){
+  .courseGrid{
+    grid-template-columns: 1fr;
+    gap:28px;
+  }
+
+  .courseCol p{
+    max-width: var(--textMax);
+  }
+}
+
+@media(max-width:900px){
+  .wrap{padding:54px 22px 90px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="top">
+    <div class="eyebrow">Tools</div>
+  </div>
+
+  <div class="heroHead">
+    <h1>When Two Dots Collide, They Slightly Alter Each Other</h1>
+    <div class="sub">Customizable sound for focus and fun</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="kicker">Tool</div>
+
+    <div class="courseGrid">
+      <div class="courseCol">
+        <p><strong class="kw">When Two Dots Collide, They Slightly Alter Each Other</strong> is a simple generative sound tool designed for focus, play, and small variations in attention.</p>
+
+        <p>Each encounter produces a slightly different sonic condition, so the app can be used as a lightweight background environment rather than as a fixed composition.</p>
+
+        <a class="toolLink" href="./two_dots_audio_clean_title_and_toggle_MONO_graySlider_toggleBelowRight_SINGLE_FIXED.html" target="_blank" rel="noopener noreferrer">Open the web app ↗</a>
+      </div>
+
+      <div class="courseCol">
+        <div class="sectionTitle">System</div>
+
+        <p>The structure is built on <strong class="kw">four sine-wave oscillators</strong>, one per colour: black <strong class="kw">110 Hz</strong>, red <strong class="kw">140 Hz</strong>, blue <strong class="kw">170 Hz</strong>, and green <strong class="kw">200 Hz</strong>.</p>
+
+        <p>Each dot corresponds to one of these frequencies and moves independently across the screen, generating a visual field that also acts as a sound system.</p>
+      </div>
+    </div>
+
+    <div class="hrSoft"></div>
+
+    <div class="courseGrid">
+      <div class="courseCol">
+        <div class="sectionTitle">Interaction</div>
+
+        <p>When two dots collide, their frequencies are modified through alternating operations of <strong class="kw">×1.5</strong> or <strong class="kw">÷2</strong>.</p>
+
+        <p>These micro-variations accumulate over time, so the harmonic field never settles into a stable pattern and is continuously reshaped by accidental encounters.</p>
+      </div>
+
+      <div class="courseCol">
+        <div class="sectionTitle">Use</div>
+
+        <p>The result is a <strong class="kw">customizable soundscape</strong> that remains minimal but never identical to itself, balancing repetition and deviation in a very direct way.</p>
+
+        <p>The app can be approached both as a playful interface and as a simple ambient tool for concentration, rhythm, or low-intensity listening.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+  <div class="mini">Contact — gilda@gildamanfrin.com · <a href="https://bureau.gilda-manfrin.com" target="_blank" rel="noopener noreferrer">Bureau_M</a></div>
+
+</main>
+</body>
+</html>

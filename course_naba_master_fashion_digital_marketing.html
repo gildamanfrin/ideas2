@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — Project and Methodology of Visual Communication</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+}
+
+ .heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:34ch;
+}
+
+.quote{
+  margin:0 auto 18px;
+  max-width:var(--textMax);
+  padding:14px 16px;
+  border-left:2px solid var(--hair);
+  color:var(--text);
+}
+.quote p{
+  margin:0;
+  font-family:"Junicode", serif;
+  font-size:18px;
+  line-height:1.35;
+  font-weight:400;
+}
+.courseGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:42px;
+  align-items:start;
+  max-width: var(--wrap);
+}
+.courseCol{
+  min-width:0;
+}
+/* keep comfortable line-length inside each column */
+.courseCol p,
+.courseCol blockquote{
+  max-width: 58ch;
+}
+.kw{
+  font-weight:600;
+}
+@media (max-width: 860px){
+  .courseGrid{ grid-template-columns: 1fr; gap:28px; }
+  .courseCol p, .courseCol blockquote{ max-width: var(--textMax); }
+}
+
+.sectionTitle{
+  font-family:"Junicode", serif;
+  font-size:22px;
+  line-height:1.2;
+  margin:40px 0 10px;
+  font-weight:400;
+}
+.quote .src{
+  display:block;
+  margin-top:8px;
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:12px;
+  letter-spacing:.02em;
+  color:var(--muted);
+}
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:0 auto;
+  text-align:center;
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.section{
+  margin-bottom:46px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+ul{
+  margin:10px 0 0 18px;
+  padding:0;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+li{margin:0 0 8px;}
+
+.hrSoft{
+  height:1px;
+  background:var(--hair);
+  margin:32px 0 34px;
+}
+
+.mini{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+}
+
+@media(max-width:900px){
+  .wrap{padding:54px 22px 90px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="top">
+    <div class="eyebrow">Education · Courses</div>
+    <div class="nav">
+      <a href="index.html">Back to Ideas</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+
+  <div class="heroHead">
+    <h1>Project and Methodology of Visual Communication</h1>
+    <div class="sub">Master in Fashion Digital Marketing · NABA, Milan</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section">
+      <div class="kicker">2022–2023 · 2023–2024 · 2024–2025 · 2025–2026</div>
+
+  <div class="courseGrid">
+    <div class="courseCol">
+      <blockquote class="quote">
+              <p>“The design method is nothing more than a series of necessary operations, arranged in a logical order dictated by experience. Its purpose is to achieve the maximum result with the minimum effort.”</p>
+              <span class="src">— B. Munari, <em>Da cosa nasce cosa. Appunti per una metodologia progettuale</em>, Laterza, 1981</span>
+            </blockquote>
+
+      <p>In fashion, how are <strong class="kw">communication strategies</strong> designed? How are <strong class="kw">visual communication projects</strong> developed and managed? How are <strong class="kw">creative and commercial needs</strong> integrated? How are the <strong class="kw">most effective and innovative contents</strong> conceived, planned, and executed? What are the most utilised techniques?</p>
+
+      <p>Far from being rigid or exhaustive, the course develops <strong class="kw">high-level professional skills</strong> through a <strong class="kw">project-based structure</strong> built around the creation of <strong class="kw">strategic decks</strong> for a <strong class="kw">seasonal communication calendar</strong>.</p>
+
+      </div>
+    <div class="courseCol">
+<p>Students select an <strong class="kw">emerging brand</strong> (<strong class="kw">AI-supported research</strong> is allowed, but guided by <strong class="kw">critical constraints</strong>), identify areas of improvement, and define a <strong class="kw">macro-concept</strong> grounded in <strong class="kw">three core brand values</strong>. From this foundation, narrative strands, content formats, and project proposals are structured through the <strong class="kw">Product–Values–People framework</strong>, leading to a coherent <strong class="kw">editorial system</strong> and <strong class="kw">calendarisation</strong>.</p>
+
+<p>In an attempt to respond to the general flattening of online visual content, I work together with students on creating <strong class="kw">value-based moodboards</strong> by sourcing materials from books on <strong class="kw">art</strong>, <strong class="kw">architecture</strong> and <strong class="kw">fashion</strong> — rather than Pinterest — available at the library.</p>
+
+<p>In addition to in-class work, the course includes <strong class="kw">curated educational outings</strong> — for example at Fondazione ICA, Fondazione Elpis, or Fondazione Sozzani — to connect projects with <strong class="kw">contemporary artistic research</strong> and specific cultural areas of the city. <strong class="kw">Guest lectures</strong> are also integrated: last year, Natalie Corre (Advance Copy) focused on <strong class="kw">values and purpose</strong> in brand communication, while Rosie Donoghue (un/produced) addressed <strong class="kw">content production</strong> and <strong class="kw">artist patronage</strong>.</p>
+    </div>
+  </div>
+</section>
+
+  <div class="divider"></div>
+  <div class="mini">Content Direction for Fashion: teaching, methods and reflections on visual and digital culture</div>
+
+</main>
+</body>
+</html>

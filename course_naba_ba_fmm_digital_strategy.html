@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — Digital Strategy</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+  --teaching:#7eb7bd;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--teaching);
+}
+
+.nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+}
+
+.heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:34ch;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:var(--teaching);
+}
+
+/* QUOTE FIX */
+.quote{
+  margin:0 0 18px 0;
+  max-width:58ch;
+  padding:14px 16px;
+  border-left:2px solid var(--teaching);
+  color:var(--text);
+}
+.quote p{
+  margin:0;
+  font-family:"Junicode", serif;
+  font-size:18px;
+  line-height:1.35;
+  font-weight:400;
+}
+
+/* SOURCE FIX */
+.quote .src{
+  display:block;
+  margin-top:8px;
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:11px;
+  letter-spacing:.02em;
+  color:var(--muted);
+}
+
+.courseGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:42px;
+  align-items:start;
+  max-width: var(--wrap);
+}
+.courseCol{
+  min-width:0;
+}
+
+.courseCol p,
+.courseCol blockquote{
+  max-width: 58ch;
+}
+
+.kw{
+  font-weight:600;
+}
+
+@media (max-width: 860px){
+  .courseGrid{ grid-template-columns: 1fr; gap:28px; }
+  .courseCol p, .courseCol blockquote{ max-width: var(--textMax); }
+}
+
+.sectionTitle{
+  font-family:"Junicode", serif;
+  font-size:22px;
+  line-height:1.2;
+  margin:40px 0 10px;
+  font-weight:400;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:0 auto;
+  text-align:center;
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.section{
+  margin-bottom:46px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+ul{
+  margin:10px 0 0 18px;
+  padding:0;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+li{margin:0 0 8px;}
+
+.mini{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+}
+
+@media(max-width:900px){
+  .wrap{padding:54px 22px 90px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<div class="top">
+  <div class="eyebrow">Teaching · Courses</div>
+</div>
+
+<div class="heroHead">
+  <h1>Digital Strategy</h1>
+  <div class="sub">BA Fashion Marketing Management · NABA, Milan</div>
+</div>
+
+<div class="divider"></div>
+
+<section class="section">
+  <div class="kicker">2024–2025 · 2025–2026</div>
+
+  <div class="courseGrid">
+    <div class="courseCol">
+
+      <blockquote class="quote">
+        <p>The present is no more than material for the future.</p>
+        <span class="src">— H. G. Wells, cited in Els Dragt, <em>How to Research Trends</em></span>
+      </blockquote>
+
+      <p>During the course students are encouraged to observe how brands compete for the attention of a specific public not only against direct competitors, but also against <strong class="kw">media</strong>, <strong class="kw">art</strong>, <strong class="kw">photography</strong>, <strong class="kw">design</strong> and other cultural forms occupying the same space of attention.</p>
+
+      <p>From this starting point, the course moves towards the definition of the <strong class="kw">cultural context</strong> on which emerging brands operate or might be part of and with the identification of relevant aspirational <strong class="kw">brand benchmarks</strong>, as well as a <strong class="kw">target audience</strong>, understood not as a generic demographic segment but as a more precise cultural and behavioural community.</p>
+
+      <p>After analysing these different layers, students work on recognising <strong class="kw">emerging trends</strong> across communication, digital creativity, technology, and broader socio-cultural and generational shifts, with particular attention to <strong class="kw">Gen Z</strong> in relation to the age and perspective of the class.</p>
+
+    </div>
+
+    <div class="courseCol">
+
+      <p>These observations then inform the development of a possible <strong class="kw">future strategic direction</strong> for the selected brand, intended not as a definitive answer but as a structured response to changing contexts and opportunities.</p>
+
+      <p>Starting from this direction, students elaborate an <strong class="kw">editorial concept</strong> that can support the creation of digital contents and projects, linking strategic thinking with concrete proposals for communication and image-making.</p>
+
+      <p>Through this process, the course aims to build a more critical and contemporary understanding of <strong class="kw">digital strategy</strong>, connecting brand positioning, cultural research and content development within the same framework.</p>
+
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+<div class="mini">Teaching, methods and reflections on visual and digital culture</div>
+
+</main>
+</body>
+</html>

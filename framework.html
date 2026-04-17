@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — Product / Values / People</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+}
+
+.heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:34ch;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:#cb2c01;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:0 auto;
+  text-align:center;
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.section{
+  margin-bottom:46px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+.courseGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:42px;
+  align-items:start;
+  max-width: var(--wrap);
+}
+
+.courseCol{
+  min-width:0;
+}
+
+.courseCol p{
+  max-width:58ch;
+}
+
+.sectionTitle{
+  font-family:"Junicode", serif;
+  font-size:22px;
+  line-height:1.2;
+  margin:34px 0 10px;
+  font-weight:400;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+.kw{
+  font-weight:600;
+}
+.fullWidthText p{
+  max-width:none;
+  width:100%;
+}
+
+.hrSoft{
+  height:1px;
+  background:var(--hair);
+  margin:34px 0 34px;
+}
+
+.threeGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:28px;
+  margin:18px 0 8px;
+}
+
+.miniCard{
+  border-top:1px solid var(--hair);
+  padding-top:14px;
+}
+
+.miniCard h3{
+  font-family:"Junicode", serif;
+  font-size:20px;
+  line-height:1.2;
+  font-weight:400;
+  margin:0 0 10px 0;
+}
+
+.miniCard p{
+  font-size:13px;
+  line-height:1.62;
+  margin:0 0 10px 0;
+}
+
+.mini{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+}
+
+@media (max-width: 980px){
+  .threeGrid{
+    grid-template-columns:1fr 1fr 1fr;
+    gap:24px;
+  }
+}
+
+@media (max-width: 760px){
+  .threeGrid{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+}
+
+@media (max-width: 860px){
+  .courseGrid{
+    grid-template-columns: 1fr;
+    gap:28px;
+  }
+
+  .courseCol p{
+    max-width: var(--textMax);
+  }
+}
+
+@media(max-width:900px){
+  .wrap{padding:54px 22px 90px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="top">
+    <div class="eyebrow">Tools</div>
+</div>
+
+  <div class="heroHead">
+    <h1>Product / Values / People</h1>
+    <div class="sub">Framework · Analysing and structuring fashion visual content</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="kicker">Framework</div>
+
+    <div class="courseGrid">
+      <div class="courseCol">
+
+        <p>This framework was developed as a grid to analyse and categorise the kinds of visual and content assets fashion brands can use in order to build richer and more articulated forms of storytelling, in an organised and scalable way.</p>
+
+        <p>Rather than focusing on isolated outputs or on a generic distinction between campaigns, social media, and editorial content, it proposes a simpler structure based on three recurring dimensions: <strong class="kw">product</strong>, <strong class="kw">values</strong>, and <strong class="kw">people</strong>.</p>
+
+        <div class="sectionTitle">Starting point</div>
+
+        <p>A good communication plan — as well as one that is more nuanced and interesting to work on — can balance <strong class="kw">product valorisation</strong>, the expression of <strong class="kw">brand values</strong>, and the presence of the <strong class="kw">people</strong> who shape or surround the brand.</p><p>In this sense, the framework works both as an analytical tool and as a design tool: it helps to read existing communication, identify missing areas, and imagine a more layered editorial direction.</p>
+
+      </div>
+
+      <div class="courseCol">
+
+        <p>Different types of content interact over time to create a broader cultural and visual ecosystem, expanding or contracting according to the brand’s <strong class="kw">strategic needs</strong> and <strong class="kw">budget constraints</strong>.</p>
+
+        <div class="sectionTitle">Use</div>
+
+        <p>In teaching, I use this structure to help students move beyond generic content planning and towards more coherent narrative thinking, where each content typology supports a wider strategic direction.</p>
+
+      </div>
+    </div>
+
+    <div class="hrSoft"></div>
+
+    
+<div class="sectionTitle">Combinations</div>
+<div class="fullWidthText">
+<p>The framework is not intended as a rigid taxonomy, but as a modular structure. The different elements it identifies can be combined in multiple ways, allowing brands to construct more articulated forms of storytelling rather than repeating the same logic across all contents.</p>
+
+<p>The way these dimensions interact and shift in balance according to context, medium, and strategic intention provides a way of telling stories rooted in editorial thinking, prioritising what brands have to say, with the goal of directing traffic to proprietary websites and platforms rather than simply responding to the demands of social media algorithms.</p>
+
+<p>In this sense, the framework helps to imagine narrative systems that are recognisable yet not repetitive, where different content types can be organised to support a broader editorial direction without collapsing into uniformity.</p>
+</div>
+
+
+    <div class="hrSoft"></div>
+
+    
+<div class="sectionTitle">Three dimensions</div>
+
+    <div class="threeGrid">
+      <div class="miniCard">
+        <h3>Product</h3>
+        <p>Content centred on the object itself and on its visual or commercial aspects.</p>
+        <p>This includes still life imagery, detail shots, lookbooks, fashion show content, on-body editorials, and other formats that foreground the commercial and visual aspects of the collection and current season.</p>
+      </div>
+
+      <div class="miniCard">
+        <h3>Values</h3>
+        <p>Content that expresses what the brand stands for, or the wider world it wants to evoke.</p>
+        <p>This can include mood-driven visual positioning, cultural references, patronage, or pure editorial and cultural projects such as Prada Frames, Miu Miu Literary Club, or reposts of artworks and design pieces, as seen in strategies such as The Row.</p>
+      </div>
+
+      <div class="miniCard">
+        <h3>People</h3>
+        <p>Content built around the individuals who shape the brand, like designers, manufacturers or team members, as well as community-based editorial projects.</p>
+        <p>Designers, team members, artists, collaborators, musicians, muses, and other figures can all become part of the storytelling structure.</p>
+      </div>
+    </div>
+
+    <div class="hrSoft"></div>
+
+    <div class="sectionTitle">Hybrid narrative forms</div>
+
+    <div class="threeGrid">
+      <div class="miniCard">
+        <h3>Product + Values</h3>
+        <p>Content that expresses what the brand stands for while highlighting product characteristics that recur across collections.</p>
+        <p>This can include craftsmanship stories, special techniques, materials, and ways of making products independent of the current season, as well as branded collaborations with companies from other industries.</p>
+      </div>
+
+      <div class="miniCard">
+        <h3>Product + People</h3>
+        <p>Products activated through human presence, collaboration, or endorsement.</p>
+        <p>This includes collaborations with artists or celebrities, whether in the creation of products or as testimonial figures within campaigns and editorials.</p>
+      </div>
+
+      <div class="miniCard">
+        <h3>Values + People</h3>
+        <p>Content where individuals embody a wider worldview, sensibility, or cultural positioning.</p>
+        <p>Podcast-like or blog-like formats, interviews, community editorials, and curated series of protagonists can all contribute to building a sense of community around the brand.</p>
+      </div>
+    </div>
+
+    <div class="hrSoft"></div>
+
+    <div class="courseGrid">
+      <div class="courseCol">
+        <div class="sectionTitle">Potential outcome</div>
+        <p>Used in this way, the grid can support the construction of editorial plans that are more varied, more precise, and less dependent on generic content repetition, allowing brands to articulate themselves through richer and more distinct storytelling formats.</p>
+      </div>
+
+      <div class="courseCol">
+        <div class="sectionTitle">Why it matters</div>
+        <p>Seen this way, storytelling is not a decorative layer added after the product, but a system through which brands organise meaning. The framework helps to understand which content types are already present, which ones are overused, and which ones could expand the brand’s narrative more effectively.</p>
+      </div>
+    </div>
+
+    <div class="hrSoft"></div>
+
+
+    </section>
+
+  <div class="divider"></div>
+  <div class="mini">Teaching, methods and reflections on visual and digital culture</div>
+
+</main>
+</body>
+</html>

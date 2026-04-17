@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — Editorial Identity & Narrative Systems</title>
+
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1400px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:620px;
+  --overlayAccent:#9c8f83;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 100px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
+.label{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--overlayAccent);
+}
+
+nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-left:20px;
+  text-decoration:none;
+}
+
+.heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+
+h1{
+  font-family:"Junicode", serif;
+  font-size:48px;
+  font-weight:400;
+  margin:10px 0;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:var(--overlayAccent);
+}
+
+.sub{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.mainGrid{
+  display:grid;
+  grid-template-columns:minmax(0, 700px) minmax(320px, 420px);
+  gap:90px;
+  align-items:start;
+}
+
+.block{
+  margin-bottom:56px;
+}
+
+.block h2{
+  font-family:"Junicode", serif;
+  font-weight:400;
+  font-size:21px;
+  margin:0 0 14px 0;
+}
+
+.block p{
+  font-size:14px;
+  line-height:1.58;
+  max-width:var(--textMax);
+  margin:0 0 12px 0;
+}
+
+.block strong{
+  font-weight:400;
+}
+
+.sidebar{
+  position:sticky;
+  top:40px;
+}
+
+.sideCard{
+  border-top:1px solid var(--hair);
+  padding-top:18px;
+}
+
+.sideCard h2{
+  font-family:"Junicode", serif;
+  font-weight:400;
+  font-size:21px;
+  margin:0 0 14px 0;
+}
+
+.sideIntro{
+  font-size:13px;
+  line-height:1.55;
+  color:var(--muted);
+  margin:0 0 22px 0;
+}
+
+.projectList{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.projectItem{
+  padding-bottom:16px;
+  border-bottom:1px solid var(--hair);
+}
+
+.projectItem:last-child{
+  border-bottom:none;
+  padding-bottom:0;
+}
+
+.projectTitle{
+  font-family:"Junicode", serif;
+  font-size:18px;
+  line-height:1.25;
+  margin-bottom:6px;
+}
+
+.projectText{
+  font-size:13px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.miniLabel{
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.finalBar{
+  margin-top:120px;
+  padding:40px 0 0;
+  border-top:1px solid var(--hair);
+}
+
+.finalInner{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  flex-wrap:wrap;
+  font-size:12px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.finalLeft,
+.finalRight{
+  max-width:480px;
+}
+
+@media(max-width:980px){
+  .mainGrid{
+    grid-template-columns:minmax(0, 1.8fr) minmax(280px, 1fr);
+    gap:44px;
+  }
+
+  .sidebar{
+    position:static;
+  }
+}
+
+@media(max-width:760px){
+  .mainGrid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+}
+
+@media(max-width:900px){
+  h1{
+    font-size:34px;
+  }
+
+  .wrap{
+    padding:54px 22px 90px;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="top">
+    <div class="label">Case Study</div>
+</div>
+
+  <div class="heroHead">
+    <h1>Editorial Identity &amp; Narrative Systems</h1>
+    <div class="sub">2021–2023 · Strategic Consultancy &amp; Creative Direction</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="mainGrid">
+
+    <div class="contentCol">
+
+      <section class="block">
+        <h2>Context</h2>
+        <p>
+          Corneliani is a menswear brand deeply rooted in sartorial tradition and Italian heritage. The project began with a central question: how can a brand built on product excellence develop an appealing cultural and editorial presence?
+        </p>
+        <p>
+          Rather than focusing on individual campaigns, the work explored how to reposition the brand through a broader narrative system—connecting craftsmanship, contemporary culture, and a renewed idea of masculine elegance.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>The Strategic Challenge</h2>
+        <p><strong>From product-centric heritage to narrative authority</strong></p>
+        <p>
+          Luxury tailoring brands often communicate primarily through product imagery. The challenge was to build a framework capable of expanding the brand’s voice beyond garments, trying to gain a newer space for the brand.
+        </p>
+        <p>
+          The work developed as a series of projects rather than isolated campaigns, working on editorial series and multimedia initiatives able to build a broader narrative authority.
+        </p>
+      </section>
+
+      
+
+      <section class="block">
+        <h2>Project Ecosystem</h2>
+        <p>
+          The direction unfolded through a combination of editorial frameworks, cultural partnerships, visual narratives, product-focused mood content, and projects centered on craftsmanship.
+        </p>
+        <p>
+          What mattered most was not a single campaign, but the possibility of building a constellation of initiatives able to articulate the brand beyond product communication alone, spanning collaborations with innovative voices, visual and textual guides, behind-the-scenes atelier narratives, and a more editorial and colloquial tone while keeping the high visual standards of the brand.
+        </p>
+      </section>
+
+      
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="sideCard">
+        <div class="miniLabel">Highlights</div>
+        <h2>Selected Projects</h2>
+        <p class="sideIntro">
+          A selection of initiatives developed within the broader narrative system, spanning editorial direction, cultural partnerships, sound, and product storytelling.
+        </p>
+
+        <div class="projectList">
+
+          <div class="projectItem">
+            <div class="projectTitle">Independent Publishing Partnerships</div>
+            <div class="projectText">
+              Collaborations with independent magazines including <em>Valet Magazine</em>, which developed an editorial published both in print and across Corneliani’s social channels, and <em>Sali &amp; Tabacchi Journal</em>, which created a reportage from <em>Festivaletteratura Mantova</em>, a major cultural event taking place in the brand’s hometown.
+            </div>
+          </div>
+
+          <div class="projectItem">
+            <div class="projectTitle">A Guide to Conscious Elegance</div>
+            <div class="projectText">
+              A multi-chapter editorial project exploring the culture of materials, garment care, and understated sartorial details through a more reflective and educational tone of voice.
+            </div>
+          </div>
+
+          <div class="projectItem">
+            <div class="projectTitle">Sound Playlists</div>
+            <div class="projectText">
+              A series of curated playlists conceived to extend the brand’s identity into a sonic dimension, connecting atmosphere, rhythm, and contemporary masculinity.
+            </div>
+          </div>
+
+          <div class="projectItem">
+            <div class="projectTitle">Atelier Project</div>
+            <div class="projectText">
+              A photographic series focused on the Corneliani atelier and the made-to-measure process, foregrounding gestures, tools, and forms of craftsmanship as part of the brand narrative.
+            </div>
+          </div>
+
+          <div class="projectItem">
+            <div class="projectTitle">Product Mood Series</div>
+            <div class="projectText">
+              A set of still life and detail-focused contents built around product mood, sartorial details, and tactile atmospheres, which achieved particularly strong resonance across social platforms.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="finalBar">
+    <div class="finalInner">
+      <div class="finalLeft">
+        Corneliani — Editorial Identity &amp; Narrative Systems<br/>
+        2021–2023 · Strategic Consultancy &amp; Creative Direction
+      </div>
+      <div class="finalRight">
+        Role: Strategic Positioning · Editorial Systems · Creative Direction
+      </div>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>

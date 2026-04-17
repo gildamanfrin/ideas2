@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — Guest Lecture — Rosie Donoghue (un/produced)</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+  --overlayAccent:#7eb7bd;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--overlayAccent);
+}
+
+.nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+}
+
+ .heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:34ch;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:var(--overlayAccent);
+}
+
+.quote{
+  margin:0 auto 18px;
+  max-width:var(--textMax);
+  padding:14px 16px;
+  border-left:2px solid var(--overlayAccent);
+  color:var(--text);
+}
+.quote p{
+  margin:0;
+  font-family:"Junicode", serif;
+  font-size:18px;
+  line-height:1.35;
+  font-weight:400;
+}
+.courseGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:42px;
+  align-items:start;
+  max-width: var(--wrap);
+}
+.courseCol{
+  min-width:0;
+}
+/* keep comfortable line-length inside each column */
+.courseCol p,
+.courseCol blockquote{
+  max-width: 58ch;
+}
+.kw{
+  font-weight:600;
+}
+@media (max-width: 860px){
+  .courseGrid{ grid-template-columns: 1fr; gap:28px; }
+  .courseCol p, .courseCol blockquote{ max-width: var(--textMax); }
+}
+
+.sectionTitle{
+  font-family:"Junicode", serif;
+  font-size:22px;
+  line-height:1.2;
+  margin:40px 0 10px;
+  font-weight:400;
+}
+.courseCol .sectionTitle:first-child{
+  margin-top:0;
+}
+.quote .src{
+  display:block;
+  margin-top:8px;
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:12px;
+  letter-spacing:.02em;
+  color:var(--muted);
+}
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:0 auto;
+  text-align:center;
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.section{
+  margin-bottom:46px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+ul{
+  margin:10px 0 0 18px;
+  padding:0;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+li{margin:0 0 8px;}
+
+.hrSoft{
+  height:1px;
+  background:var(--hair);
+  margin:32px 0 34px;
+}
+
+.mini{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+}
+
+@media(max-width:900px){
+  .wrap{padding:54px 22px 90px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="top">
+    <div class="eyebrow">Teaching · Guest Lecture</div>
+</div>
+
+  <div class="heroHead">
+    <h1>Guest Lecture — Rosie Donoghue (un/produced)</h1>
+    <div class="sub">Guest lecture · Master in Fashion Digital Marketing · NABA, Milan</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section">
+      <div class="kicker">Guest Lecture</div>
+
+
+  <div class="courseGrid">
+    <div class="courseCol">
+
+      
+<p><strong class="kw">Rosie Donoghue</strong> is the founder of <strong class="kw">un/produced</strong>, a production company built on the idea that commercial work can also generate structural support for emerging creatives.</p>
+
+<p>Conceived in 2021 as something bold, different and kinetic, the project produces film and photography campaigns for luxury clients while redirecting part of its profits into annual grants for underrepresented talents.</p>
+
+<p>Inspired by a contemporary Robin Hood logic, <strong class="kw">un/produced</strong> proposes a compelling model where production, purpose and cultural relevance can operate within the same business structure.</p>
+
+      <div class="sectionTitle">Lecture structure</div>
+      <ul>
+        <li>Introduction: trajectory and foundation of <strong class="kw">un/produced</strong>.</li>
+        <li>Production as a <strong class="kw">strategic layer</strong> within fashion and luxury.</li>
+        <li>From brief to delivery: how a campaign is developed in practice.</li>
+        <li>The <strong class="kw">un/ model</strong>: integrating a grant system into a production company.</li>
+        <li>Balancing <strong class="kw">creative vision</strong> and commercial constraints.</li>
+        <li>Wrap up / Q&amp;A.</li>
+      </ul>
+
+    </div>
+    <div class="courseCol">
+
+      <div class="sectionTitle">Lecture summary</div>
+
+      <p>The lecture explored content production as both an <strong class="kw">operational</strong> and <strong class="kw">strategic</strong> practice within contemporary fashion systems.</p>
+
+      <p>Through the experience of <a href="https://www.un-produced.com/" target="_blank" rel="noopener noreferrer"><strong class="kw">un/produced</strong></a>, it examined how production operates between creative direction and commercial frameworks, shaping not only execution but also the meaning and positioning of a project.</p>
+
+      <p>Particular attention was given to the <strong class="kw">un/ model</strong>, highlighting the challenges of integrating purpose-driven initiatives within a scalable structure.</p>
+
+      <p>The session offered students a clearer understanding of how production functions in practice, especially in relation to commissioning, decision-making, and the construction of image.</p>
+
+
+    </div>
+  </div>
+
+</section>
+
+  <div class="divider"></div>
+  <div class="mini">Teaching, methods and reflections on visual and digital culture</div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang='en'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>When Two Dots Collide, They Slightly Alter Each Other</title>
+<style>
+html,body{height:100%;margin:0;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif}
+header{padding:10px 14px;}
+h1{margin:0;font:600 18px "Times New Roman",Times,serif}
+#wrap{height:calc(100% - 52px)}
+canvas{display:block;width:100%;height:100%;background:#fff}
+.toolbar{position:fixed;right:10px;top:10px;background:rgba(255,255,255,.96);border:1px solid #e5e5e5;border-radius:10px;padding:6px 8px;font-size:12px;display:flex;gap:10px;align-items:center}
+.toolbar label{margin-right:4px;color:#666}
+
+
+.badge{font-size:12px;color:#666}
+</style>
+<!-- Inter (Google Fonts) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body, button, h1, h2, h3, h4, p, span {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+#toggleAudio {
+  position: fixed !important;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  border: 1px solid #000;
+  font: 500 14px/1 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#toggleAudio:hover {
+  background: #000;
+  color: #fff;
+}
+#toggleAudio[aria-pressed="true"] {
+  background: #000;
+  color: #fff;
+}
+@media (max-width: 640px){
+  #toggleAudio { right: 12px; bottom: 12px; padding: 9px 14px; font-size: 13px; }
+}
+</style>
+
+
+<style>
+/* Force black sliders for Chrome/Safari/Edge */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #000;
+  height: 3px;
+  border-radius: 3px;
+}
+input[type="range"]::-webkit-slider-thumb {  -webkit-appearance: none; appearance: none;  background: #555; border: 1px solid #555;  height: 14px; width: 14px; border-radius: 50%;  margin-top: -6px; cursor: pointer;}
+
+/* For Firefox */
+input[type="range"]::-moz-range-track {
+  background: #000;
+  height: 3px;
+  border-radius: 3px;
+}
+input[type="range"]::-moz-range-thumb {  background: #555; border: 1px solid #555;  height: 14px; width: 14px; border-radius: 50%;  cursor: pointer;}
+
+/* General toolbar + button reinforcement */
+header .toolbar input[type="number"], header .toolbar select {  border: 1px solid #555 !important;  color: #000 !important; background: #fff !important;  border-radius: 6px;}
+header .toolbar button
+header .toolbar button#sound:hover, header .toolbar button#sound[aria-pressed="true"] {  background: #000 !important;  color: #fff !important;  border-color: #000 !important;}
+</style>
+
+
+<style>
+/* Monochrome override for the sound toggle */
+
+#sound:hover,
+
+</style>
+
+
+<style>
+/* Fix blue slider thumbs: make track black, thumb gray (#777) */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #000 !important;
+  height: 3px;
+  border-radius: 3px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #777 !important;
+  border: 1px solid #777 !important;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  margin-top: -6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #000 !important;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-track {
+  background: #000 !important;
+  height: 3px;
+  border-radius: 3px;
+}
+input[type="range"]::-moz-range-thumb {
+  background: #777 !important;
+  border: 1px solid #777 !important;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+input[type="range"]::-moz-range-thumb:hover {
+  background: #000 !important;
+}
+</style>
+
+
+<style>
+  header .toggle-row{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:8px;
+  }
+  header .toggle-row 
+  header .toggle-row #sound:hover,
+  header .toggle-row #sound[aria-pressed="true"] {
+    background:#000 !important;
+    color:#fff !important;
+    border-color:#000 !important;
+  }
+</style>
+
+
+<style>
+  /* Single Sound toggle: fixed under the toolbar, right-aligned, monochrome */
+  #sound {
+    position: fixed;
+    right: 10px;
+    top: 58px;           /* just below the toolbar at top:10px */
+    z-index: 1000;
+    border: 1px solid #777;
+    background: #fff;
+    color: #777;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font: 500 13px/1 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  #sound:hover,
+  #sound.off {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
+</style>
+
+</head>
+<body>
+<header><h1>When Two Dots Collide, They Slightly Alter Each Other</h1>
+</header>
+<div id='wrap'><canvas id='c'></canvas></div>
+<button id='sound' class='on'>Enable Sound</button>
+<div class='toolbar'>
+  <label>Dot</label><input id='size' type='range' min='6' max='28' value='12' step='1'><span id='sz' class='badge'>12px</span>
+  <label>Speed</label><input id='speed' type='range' min='0.2' max='3' value='1' step='0.1'><span id='sp' class='badge'>1.0×</span>
+  <label>Freq</label><input id='fmin' type='number' value='110' min='40' max='400' style='width:64px'>–<input id='fmax' type='number' value='200' min='120' max='800' style='width:64px'>
+  <label>Collide</label><select id='ratio'>
+    <option value='1.5' selected>×1.5 / ÷2</option>
+    <option value='1.25'>×1.25 / ÷1.5</option>
+    <option value='2.0'>×2 / ÷2</option>
+  </select>
+  <label>Vol</label><input id='vol' type='range' min='0' max='1' step='0.01' value='0.2'>
+</div>
+<script>
+(function(){
+  const canvas=document.getElementById('c'); const ctx=canvas.getContext('2d');
+  function resize(){ const DPR=Math.max(1,window.devicePixelRatio||1); const rect=canvas.getBoundingClientRect();
+    canvas.width=Math.floor(rect.width*DPR); canvas.height=Math.floor(rect.height*DPR); ctx.setTransform(DPR,0,0,DPR,0,0); }
+  new ResizeObserver(resize).observe(canvas); resize();
+
+  const sizeEl=document.getElementById('size'), speedEl=document.getElementById('speed');
+  const sz=document.getElementById('sz'), sp=document.getElementById('sp');
+  sizeEl.addEventListener('input',()=> sz.textContent=Number(sizeEl.value)+'px');
+  speedEl.addEventListener('input',()=> sp.textContent=Number(speedEl.value).toFixed(1)+'×');
+
+  const colors=['#111','#E11D48','#2563EB','#10B981'];
+  const dots=[];
+  function resetDots(){
+    dots.length=0;
+    const r=Number(sizeEl.value);
+    const w=canvas.width/(window.devicePixelRatio||1), h=canvas.height/(window.devicePixelRatio||1);
+    for(let g=0; g<4; g++){ for(let k=0;k<4;k++){ dots.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()*2-1),vy:(Math.random()*2-1),r,group:g,color:colors[g]}); } }
+  }
+  sizeEl.addEventListener('input',()=>{ const r=Number(sizeEl.value); dots.forEach(d=>d.r=r); });
+  resetDots();
+
+  // Audio with toggle
+  let ac=null, master=null, nodes=[];
+  const soundBtn=document.getElementById('sound');
+  const vol=document.getElementById('vol');
+  const fmin=document.getElementById('fmin'), fmax=document.getElementById('fmax'), ratio=document.getElementById('ratio');
+
+  async function enableSound(){
+    if(!ac){
+      ac=new (window.AudioContext||window.webkitAudioContext)();
+      master=ac.createGain(); master.gain.value=Number(vol.value); master.connect(ac.destination);
+      [110,140,170,200].forEach(b=>{ const o=ac.createOscillator(), g=ac.createGain(); g.gain.value=.18; o.type='sine'; o.frequency.value=b; o.connect(g).connect(master); o.start();
+        nodes.push({osc:o,gain:g,base:b,freq:b}); });
+      applyBase();
+    }
+    if(ac.state==='suspended'){ await ac.resume(); }
+    soundBtn.textContent='Disable Sound'; soundBtn.classList.add('off');
+  }
+  async function disableSound(){
+    if(ac && ac.state==='running'){ await ac.suspend(); }
+    soundBtn.textContent='Enable Sound'; soundBtn.classList.remove('off');
+  }
+
+  soundBtn.addEventListener('click', async ()=>{
+    try{ if(!ac || ac.state==='suspended'){ await enableSound(); } else { await disableSound(); } }
+    catch(e){ soundBtn.textContent='Click again to enable sound'; }
+  });
+
+  vol.addEventListener('input', ()=>{ if(master) master.gain.value=Number(vol.value); });
+  function applyBase(){
+    if(!ac||!nodes.length) return;
+    const lo=Math.min(Number(fmin.value),Number(fmax.value));
+    const hi=Math.max(Number(fmin.value),Number(fmax.value));
+    const steps=[0,1/3,2/3,1];
+    for(let i=0;i<4;i++){
+      const f=Math.round(lo+steps[i]*(hi-lo));
+      nodes[i].base=f; nodes[i].freq=f; nodes[i].osc.frequency.setTargetAtTime(f,ac.currentTime,0.05);
+    }
+  }
+  fmin.addEventListener('change',applyBase); fmax.addEventListener('change',applyBase);
+
+  function clamp(f){ const lo=Math.min(Number(fmin.value),Number(fmax.value)), hi=Math.max(Number(fmin.value),Number(fmax.value));
+    if(f<lo/2) return lo; if(f>hi*2) return hi; return f; }
+
+  // Animation loop (clean background)
+  function draw(){
+    const w=canvas.width/(window.devicePixelRatio||1), h=canvas.height/(window.devicePixelRatio||1);
+    ctx.clearRect(0,0,w,h);
+
+    const sp=Number(speedEl.value);
+    for(let i=0;i<dots.length;i++){
+      const d=dots[i];
+      d.x+=d.vx*sp; d.y+=d.vy*sp;
+      if(d.x<d.r||d.x>w-d.r){ d.vx*=-1; d.x=Math.max(d.r,Math.min(w-d.r,d.x)); }
+      if(d.y<d.r||d.y>h-d.r){ d.vy*=-1; d.y=Math.max(d.r,Math.min(h-d.r,d.y)); }
+    }
+    const rv=Number(ratio.value);
+    for(let i=0;i<dots.length;i++){
+      for(let j=i+1;j<dots.length;j++){
+        const a=dots[i], b=dots[j], dx=a.x-b.x, dy=a.y-b.y, dist=Math.hypot(dx,dy);
+        if(dist<=a.r+b.r){
+          const tvx=a.vx; a.vx=b.vx; b.vx=tvx; const tvy=a.vy; a.vy=b.vy; b.vy=tvy;
+          if(ac && nodes[a.group] && nodes[b.group]){
+            const now=ac.currentTime; const mult=((i+j)%2===0);
+            const fa=mult ? nodes[a.group].freq*rv : nodes[a.group].freq/(rv||1);
+            const fb=mult ? nodes[b.group].freq/(rv||1) : nodes[b.group].freq*rv;
+            nodes[a.group].freq = clamp(fa);
+            nodes[b.group].freq = clamp(fb);
+            nodes[a.group].osc.frequency.setTargetAtTime(nodes[a.group].freq, now, 0.04);
+            nodes[b.group].osc.frequency.setTargetAtTime(nodes[b.group].freq, now, 0.04);
+          }
+        }
+      }
+    }
+    dots.forEach(d=>{ ctx.beginPath(); ctx.fillStyle=d.color; ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fill(); });
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+</body></html>

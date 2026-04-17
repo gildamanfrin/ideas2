@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — Guest Lecture — Natalia Corre (Advance Copy)</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+  --teaching:#7eb7bd;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--teaching);
+}
+
+.nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+}
+
+ .heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:34ch;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:var(--teaching);
+}
+
+.quote{
+  margin:0 auto 18px;
+  max-width:var(--textMax);
+  padding:14px 16px;
+  border-left:2px solid var(--teaching);
+  color:var(--text);
+}
+.quote p{
+  margin:0;
+  font-family:"Junicode", serif;
+  font-size:18px;
+  line-height:1.35;
+  font-weight:400;
+}
+.courseGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:42px;
+  align-items:start;
+  max-width: var(--wrap);
+}
+.courseCol{
+  min-width:0;
+}
+/* keep comfortable line-length inside each column */
+.courseCol p,
+.courseCol blockquote{
+  max-width: 58ch;
+}
+.kw{
+  font-weight:600;
+}
+@media (max-width: 860px){
+  .courseGrid{ grid-template-columns: 1fr; gap:28px; }
+  .courseCol p, .courseCol blockquote{ max-width: var(--textMax); }
+}
+
+.sectionTitle{
+  font-family:"Junicode", serif;
+  font-size:22px;
+  line-height:1.2;
+  margin:40px 0 10px;
+  font-weight:400;
+}
+.courseCol .sectionTitle:first-child{
+  margin-top:0;
+}
+.quote .src{
+  display:block;
+  margin-top:8px;
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:12px;
+  letter-spacing:.02em;
+  color:var(--muted);
+}
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:0 auto;
+  text-align:center;
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.section{
+  margin-bottom:46px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+ul{
+  margin:10px 0 0 18px;
+  padding:0;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+li{margin:0 0 8px;}
+
+.hrSoft{
+  height:1px;
+  background:var(--hair);
+  margin:32px 0 34px;
+}
+
+.mini{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+}
+
+@media(max-width:900px){
+  .wrap{padding:54px 22px 90px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="top">
+    <div class="eyebrow">Teaching · Guest Lecture</div>
+</div>
+
+  <div class="heroHead">
+    <h1>Guest Lecture — Natalia Corre (Advance Copy)</h1>
+    <div class="sub">Guest lecture · Master in Fashion Digital Marketing · NABA, Milan</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section">
+      <div class="kicker">Guest Lecture</div>
+
+
+  <div class="courseGrid">
+    <div class="courseCol">
+
+      
+<p><strong class="kw">Natalia Corre</strong> is the founder of <strong class="kw">Advance Copy</strong>, a consultancy and editorial platform focused on the growth of independent fashion brands. With experience at <strong class="kw">Dries Van Noten</strong> and <strong class="kw">Erdem</strong>, she developed a pragmatic approach to brand building that combines commercial clarity, community thinking and long-term vision.</p>
+
+<p>Her work with labels such as <strong class="kw">Cecilie Bahnsen</strong> and <strong class="kw">Neous</strong>, together with her book <strong class="kw">Growing Independent Fashion Brands</strong>, offers a sharp and valuable perspective on how contemporary brands can grow while remaining culturally relevant, financially grounded and authentic.</p>
+
+      <div class="sectionTitle">Lecture structure</div>
+      <ul>
+        <li>Introduction: background and reference to the book <strong class="kw">Growing Independent Fashion Brands</strong>.</li>
+        <li>Why conventional <strong class="kw">brand-building models</strong> no longer apply.</li>
+        <li>Definition of <strong class="kw">purpose</strong> and why it matters.</li>
+        <li>Examples of purpose-driven brands and how these values are applied in practice:
+          <ul>
+            <li><strong class="kw">Kowtow</strong> — 360° commitment to sustainability.</li>
+            <li><strong class="kw">Extreme Cashmere</strong> — representation (“For everybody, and every body”).</li>
+            <li><strong class="kw">Sincerely Tommy</strong> — community building.</li>
+            <li><strong class="kw">Story Mfg.</strong> — transparency.</li>
+          </ul>
+        </li>
+        <li>Wrap up / Key learnings.</li>
+        <li>Q&A.</li>
+      </ul>
+
+    </div>
+    <div class="courseCol">
+
+      <div class="sectionTitle">Lecture summary</div>
+
+      <p>The lecture explored <strong class="kw">purpose-driven communication</strong> and the role of <strong class="kw">authenticity</strong> and <strong class="kw">transparency</strong> in building sustainable fashion brands.</p>
+
+      <p>Through the experience of <strong class="kw">Advance Copy</strong> and selected case studies, it showed how clear values can be translated into consistent choices across design, communication, and production, balancing <strong class="kw">independence</strong> and <strong class="kw">scalability</strong>.</p>
+
+      <p>The talk emphasised the importance of <strong class="kw">long-term thinking</strong>, proposing communication strategies that evolve over time and remain both commercially grounded and culturally conscious.</p>
+
+      <p>I personally find Natalia’s approach pragmatic, well-informed, and genuinely inspiring. Her book is a valuable resource for gaining a deeper understanding of many contemporary fashion brands, as well as the strategies and people behind them.</p>
+
+    </div>
+  </div>
+
+</section>
+
+  <div class="divider"></div>
+  <div class="mini">Content Direction for Fashion: teaching, methods and reflections on visual and digital culture</div>
+
+</main>
+</body>
+</html>

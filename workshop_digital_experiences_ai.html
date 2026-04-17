@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ideas — Designing Digital Experiences With (and Without) AI</title>
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --hair:rgba(0,0,0,.14);
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+  --overlayAccent:#7eb7bd;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--overlayAccent);
+}
+
+.nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+}
+
+ .heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:34ch;
+}
+
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:var(--overlayAccent);
+}
+
+.quote{
+  margin:0 auto 18px;
+  max-width:var(--textMax);
+  padding:14px 16px;
+  border-left:2px solid var(--overlayAccent);
+  color:var(--text);
+}
+.quote p{
+  margin:0;
+  font-family:"Junicode", serif;
+  font-size:18px;
+  line-height:1.35;
+  font-weight:400;
+}
+.courseGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:42px;
+  align-items:start;
+  max-width: var(--wrap);
+}
+.courseCol{
+  min-width:0;
+}
+/* keep comfortable line-length inside each column */
+.courseCol p,
+.courseCol blockquote{
+  max-width: 58ch;
+}
+.kw{
+  font-weight:600;
+}
+@media (max-width: 860px){
+  .courseGrid{ grid-template-columns: 1fr; gap:28px; }
+  .courseCol p, .courseCol blockquote{ max-width: var(--textMax); }
+}
+
+.sectionTitle{
+  font-family:"Junicode", serif;
+  font-size:22px;
+  line-height:1.2;
+  margin:40px 0 10px;
+  font-weight:400;
+}
+.quote .src{
+  display:block;
+  margin-top:8px;
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:12px;
+  letter-spacing:.02em;
+  color:var(--muted);
+}
+.sub{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:0 auto;
+  text-align:center;
+}
+
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+
+.section{
+  margin-bottom:46px;
+}
+
+.kicker{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+p{
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+ul{
+  margin:10px 0 0 18px;
+  padding:0;
+  font-size:14px;
+  line-height:1.62;
+  max-width:var(--textMax);
+}
+
+li{margin:0 0 8px;}
+
+.hrSoft{
+  height:1px;
+  background:var(--hair);
+  margin:32px 0 34px;
+}
+
+.mini{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+}
+
+@media(max-width:900px){
+  .wrap{padding:54px 22px 90px;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="top">
+    <div class="eyebrow">Teaching · Workshop</div>
+</div>
+
+  <div class="heroHead">
+    <h1>Designing Digital Experiences With (and Without) AI</h1>
+    <div class="sub">Workshop · Master in Fashion Digital Marketing · NABA, Milan</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section">
+      <div class="kicker">Workshop</div>
+
+
+  <div class="courseGrid">
+    <div class="courseCol">
+
+      <p>A <strong class="kw">two-day inaugural workshop</strong> for the Master in Fashion Digital Marketing. It introduced <strong class="kw">AI</strong> not as a production tool, but as a <strong class="kw">thinking companion</strong> — a system for reasoning, structuring, and refining ideas.</p>
+
+      <div class="sectionTitle">Day 1</div>
+      <ul>
+        <li><strong class="kw">AI</strong> as a tool for <strong class="kw">critical thinking</strong>, not just production.</li>
+        <li>Collective discussion: what is a <strong class="kw">digital experience</strong> for a fashion brand today.</li>
+        <li><strong class="kw">Keyword selection</strong> and <strong class="kw">conceptual mapping</strong> through ChatGPT / Gemini.</li>
+        <li><strong class="kw">Visual and conceptual research</strong> and analog moodboards.</li>
+        <li>Each group formulated a personal project title from the assigned theme.</li>
+      </ul>
+
+    </div>
+    <div class="courseCol">
+
+      <div class="sectionTitle">Day 2</div>
+      <ul>
+        <li>Thematic deepening with prompts for <strong class="kw">definitions</strong>, <strong class="kw">examples</strong>, and guiding questions.</li>
+        <li>Selection of references from <strong class="kw">art</strong>, <strong class="kw">fashion</strong>, and <strong class="kw">digital culture</strong>.</li>
+        <li>Synthesis into insights about today’s <strong class="kw">digital condition</strong>.</li>
+        <li>Ideation of a digital experience and selection of <strong class="kw">three potential brands</strong>.</li>
+        <li><strong class="kw">Refinement</strong> and final presentations.</li>
+      </ul>
+
+    </div>
+  </div>
+
+</section>
+
+  <div class="divider"></div>
+  <div class="mini">Content Direction for Fashion: teaching, methods and reflections on visual and digital culture</div>
+
+</main>
+</body>
+</html>
