@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Notes — Methodology Tweak: Analog Image Research</title>
+<style>
+@font-face{
+  font-family:"Junicode";
+  src:url("./Junicode.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:"Geist Mono";
+  src:url("./GeistMono-Light.woff2") format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --bg:#fbfbfa;
+  --text:#0b0b0b;
+  --muted:rgba(0,0,0,.6);
+  --mutedSoft:rgba(0,0,0,.42);
+  --hair:rgba(0,0,0,.14);
+  --notes:#227851;
+  --wrap:1280px;
+  --padX:60px;
+  --padY:70px;
+  --textMax:72ch;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:400;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.wrap{
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding:var(--padY) var(--padX) 110px;
+}
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  margin-bottom:26px;
+}
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--notes);
+}
+.heroHead{
+  text-align:center;
+  margin:30px 0 40px;
+}
+h1{
+  font-family:"Junicode", serif;
+  margin:10px auto 10px;
+  font-size:44px;
+  line-height:1.12;
+  font-weight:400;
+  max-width:34ch;
+}
+h1::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:2px;
+  margin:14px auto 0;
+  background:var(--notes);
+}
+.sub{
+  color:var(--mutedSoft);
+  font-size:12px;
+  line-height:1.6;
+  max-width:var(--textMax);
+  margin:10px auto 0;
+  text-align:center;
+}
+.divider{
+  height:1px;
+  background:var(--hair);
+  margin:30px 0 40px;
+}
+.content{
+  max-width:960px;
+  margin:0 auto;
+}
+
+.leadGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  margin:0 0 40px;
+  align-items:start;
+}
+.leadFigure{
+  margin:0;
+}
+.leadFigure img{
+  display:block;
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border:1px solid var(--hair);
+  filter:grayscale(1) contrast(.96) brightness(.99);
+  transition:filter 320ms ease, transform 320ms ease;
+}
+.leadFigure:hover img{
+  filter:grayscale(0) contrast(1) brightness(1);
+}
+.leadFigure figcaption{
+  margin-top:8px;
+  font-family:"Junicode", serif;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--muted);
+  text-transform:none;
+  letter-spacing:0;
+}
+.prose{
+  max-width:72ch;
+  margin:0 auto;
+}
+.prose p{
+  margin:0 0 16px;
+  font-size:14px;
+  line-height:1.68;
+}
+.proseBlock{
+  margin-bottom:12px;
+}
+.studentFigure{
+  margin:34px auto 38px;
+  max-width:860px;
+}
+.studentFigure img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid var(--hair);
+  filter:grayscale(1) contrast(.96) brightness(.99);
+  transition:filter 320ms ease, transform 320ms ease;
+}
+.studentFigure:hover img{
+  filter:grayscale(0) contrast(1) brightness(1);
+}
+.studentFigure figcaption{
+  margin-top:8px;
+  font-family:"Junicode", serif;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--muted);
+  text-transform:none;
+  letter-spacing:0;
+}
+.studentFigure strong{
+  display:block;
+  font-weight:400;
+  color:var(--text);
+}
+.footerTags{
+  margin:28px auto 0;
+  max-width:72ch;
+  padding-top:16px;
+  border-top:1px solid var(--hair);
+  color:var(--mutedSoft);
+  font-size:12px;
+  line-height:1.6;
+  text-align:left;
+}
+
+.top{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:start;
+  gap:18px 24px;
+  margin-bottom:18px;
+}
+.topLeft{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:0;
+  min-width:0;
+}
+.topLeft .brandItem,
+.topLeft a{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+}
+.topLeft a.active{ color:var(--notes); }
+.topLeft > * + *::before{
+  content:" · ";
+  color:var(--muted);
+  margin:0 8px;
+}
+.topRight{ display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
+.backRow a{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+}
+.topNote{
+  font-family:"Junicode", serif;
+  font-size:12px;
+  line-height:1.2;
+  color:var(--muted);
+  white-space:nowrap;
+}
+.eyebrow{ display:none; }
+@media (max-width: 900px){
+  .top{grid-template-columns:1fr;gap:10px;margin-bottom:14px}
+  .topRight{gap:4px}
+  .topNote{white-space:normal;max-width:28ch}
+}
+
+@media (hover:none){
+  .leadFigure img,
+  .studentFigure img{filter:none}
+}
+@media (max-width: 900px){
+  .wrap{padding:42px 24px 90px}
+  h1{font-size:34px;max-width:18ch}
+  .leadGrid{grid-template-columns:1fr;gap:22px}
+  .leadFigure img{height:auto}
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="topLeft">
+        <span class="brandItem">Gilda Manfrin</span>
+        <a href="index.html">Ideas</a>
+        <a href="notes.html" class="active">Notes</a>
+      </div>
+      <div class="topRight">
+        <div class="backRow"><a href="notes.html">← Back</a></div>
+        <div class="topNote">Teaching, methods and reflections on visual and digital culture</div>
+      </div>
+    </div>
+
+    <div class="heroHead">
+      <div class="eyebrow" style="display:block">Notes</div>
+      <h1>Methodology Tweak: Analog Image Research</h1>
+      <div class="sub">Methodology Tweak, Visual Culture, Creative Teaching</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+      <div class="leadGrid">
+        <figure class="leadFigure">
+          <img src="intro_erik_kessels.webp" alt="Erik Kessels — Photography in Abundance"/>
+          <figcaption>Erik Kessels — Photography in Abundance</figcaption>
+        </figure>
+        <figure class="leadFigure">
+          <img src="intro_penelope_umbrico.jpg" alt="Penelope Umbrico, 541,795 Suns from Sunsets from Flickr (Partial)"/>
+          <figcaption>Penelope Umbrico, 541,795 Suns from Sunsets from Flickr (Partial)</figcaption>
+        </figure>
+      </div>
+
+      <div class="prose">
+        <div class="proseBlock">
+          <p>This year, I made library research a central part of my courses, as a tentative response to the increasing visual flattening across fashion communication.</p>
+          <p>Recent brand imagery has gradually converged around a limited set of dependable formats: clean lookbooks on plain backgrounds designed for algorithmic performance, or familiar seasonal narrative tropes — a beach setting for summer, a quiet city walk for understated luxury, sophisticated interiors to signal refinement. These are also the visual materials that now heavily populate the training data of generative AI tools, forming an aesthetic median that easily becomes repetitive, predictable, and often tasteless.</p>
+          <p>So this year, I asked students to begin in the library and build moodboards sourcing exclusively from printed matter: books, magazines, and physical archives. The starting point varies according to level: beginners work from previously identified brand values, while more advanced students are asked to visualize how they would position a chosen brand through image language.</p>
+        </div>
+
+        <figure class="studentFigure">
+          <img src="notes1.png" alt="Moodboard Gentle Movement"/>
+          <figcaption><strong>Gentle Movement</strong> HSIAO-FANG CHENG &amp; NATALIJA ZIVKOVIC</figcaption>
+        </figure>
+
+        <div class="proseBlock">
+          <p>From there, each student develops an individual editorial concept, which becomes the basis for a broader set of communication proposals: shooting series, collaborations, editorial projects, and visual directions. The analog reference does not disappear at this stage, but is gradually expanded through more immediate contemporary references as the work develops.</p>
+        </div>
+
+        <figure class="studentFigure">
+          <img src="notes2.png" alt="Moodboard Memorie Ibride"/>
+          <figcaption><strong>Memorie Ibride</strong> FRANCESCA MIRANDOLA, OLGA COSENTINO &amp; FEDERICA NOCERA</figcaption>
+        </figure>
+
+        <div class="proseBlock">
+          <p>Two recurring challenges emerged. The first was an initial hesitation in approaching books — uncertainty around where to begin when there is no search bar. The second, more persistent one, was maintaining the visual specificity that emerged from the analog research once the work moved into actual project development. The pull toward familiar visual territory remains strong, as does the difficulty of sustaining coherence over time and across different projects.</p>
+        </div>
+
+        <figure class="studentFigure">
+          <img src="notes3.png" alt="Moodboard Weightless Dreams"/>
+          <figcaption><strong>Weightless Dreams</strong> KITTI VIRÁG KOVÁCS &amp; TENZING DECHEN</figcaption>
+        </figure>
+
+        <div class="proseBlock">
+          <p>Finding ways to keep students more anchored to their first intuitions, without turning the process into a constraint, is something I would like to explore further next year.</p>
+        </div>
+
+        <div class="footerTags">Methodology Tweak, Visual Culture, Creative Teaching</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

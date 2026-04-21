@@ -35,7 +35,7 @@
   --padX:60px;
   --padY:70px;
   --textMax:620px;
-  --overlayAccent:#9c8f83;
+  --overlayAccent:#cb2c01;
 }
 
 *{box-sizing:border-box;}
@@ -78,6 +78,84 @@ nav a{
   color:var(--muted);
   margin-left:20px;
   text-decoration:none;
+}
+
+
+.top{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:start;
+  gap:18px 24px;
+  margin-bottom:18px;
+}
+
+.topLeft{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:0;
+  min-width:0;
+}
+
+.topLeft .brandItem,
+.topLeft a{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+.topLeft a.active{
+  color:var(--overlayAccent);
+}
+
+.topLeft > * + *::before{
+  content:" · ";
+  color:var(--muted);
+  margin:0 10px 0 8px;
+}
+
+.topRight{
+  justify-self:start;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:3px;
+}
+
+.backRow{
+  margin:0;
+}
+
+.backRow a{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  display:inline-block;
+  line-height:1.1;
+  position:relative;
+  top:-1px;
+}
+
+.topNote{
+  font-family:"Junicode", serif;
+  font-style:normal;
+  font-size:11px;
+  line-height:1.25;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.heroHead{
+  text-align:center;
+  margin:18px 0 18px;
+}
+
+.heroHead .kicker{
+  margin:0 0 6px;
 }
 
 .heroHead{
@@ -257,10 +335,19 @@ h1::after{
 <main class="wrap">
 
   <div class="top">
-    <div class="label">Case Study</div>
-</div>
+    <div class="topLeft">
+      <span class="brandItem">Gilda Manfrin</span>
+      <a href="index.html">Ideas</a>
+      <a href="tools.html" class="active">Tools</a>
+    </div>
+    <div class="topRight">
+      <div class="backRow"><a href="tools.html">← Back</a></div>
+      <div class="topNote">Teaching, methods and reflections on visual and digital culture</div>
+    </div>
+  </div>
 
   <div class="heroHead">
+   <div class="kicker">Tools</div>
     <h1>Editorial Identity &amp; Narrative Systems</h1>
     <div class="sub">2021–2023 · Strategic Consultancy &amp; Creative Direction</div>
   </div>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Ideas — Index</title>
+
+<style>
+@font-face{
+font-family:"Junicode";
+src: url("./Junicode.woff2") format("woff2"),
+     url("./Junicode.woff") format("woff");
+font-weight:400;
+font-style:normal;
+font-display:swap;
+}
+
+:root{
+--bg:#ffffff;
+--text:#000000;
+--hair: rgba(0,0,0,0.14);
+--muted: rgba(0,0,0,0.62);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:"Junicode", Georgia, serif;
+-webkit-font-smoothing: antialiased;
+}
+
+a{ color:inherit; text-decoration:none; }
+a:hover{ opacity:1; }
+
+.wrap{
+max-width: 1200px;
+margin:0 auto;
+padding: 70px 40px 90px 40px;
+}
+
+/* Header */
+
+.top{
+margin-bottom: 34px;
+}
+
+.brandRow{
+display:flex;
+flex-wrap:wrap;
+align-items:baseline;
+justify-content:space-between;
+gap:14px 22px;
+}
+
+.wordmark{
+font-size: 14px;
+letter-spacing:0.22em;
+text-transform:uppercase;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:0;
+font-size: 12px;
+letter-spacing:0.12em;
+text-transform:uppercase;
+}
+
+.nav a{
+color:var(--muted);
+text-decoration:none;
+border-bottom:1px solid transparent;
+padding:0 0 3px 0;
+}
+
+.nav a + a::before{
+content:" · ";
+color:var(--muted);
+margin:0 10px 0 8px;
+}
+
+.nav a[aria-current="page"]{
+color:#cb2c01;
+border-bottom-color: #cb2c01;
+}
+
+.hint{
+margin-top:12px;
+font-size:12px;
+color:var(--muted);
+letter-spacing:0.02em;
+}
+
+.exploreRow{
+margin-top:14px;
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.exploreBtn{
+border:none;
+background:transparent;
+padding:0;
+font: inherit;
+font-size:12px;
+letter-spacing:0.12em;
+text-transform:uppercase;
+cursor:pointer;
+border-bottom:1px solid var(--text);
+}
+
+.modeTag{
+border:none;
+background:transparent;
+padding:0;
+font: inherit;
+font-size:12px;
+letter-spacing:0.06em;
+text-transform:uppercase;
+color:var(--muted);
+cursor:pointer;
+}
+
+.divider{
+height:1px;
+background:var(--hair);
+margin: 26px 0 36px 0;
+}
+
+/* Index */
+
+.sectionTitle{
+margin: 0 0 12px 0;
+font-size: 14px;
+letter-spacing:0.08em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+.index{
+display:flex;
+flex-wrap:wrap;
+gap: 8px 18px;
+font-size: 18px;
+line-height: 1.45;
+align-items:flex-start;
+}
+
+.entry{
+position:relative;
+display:inline-flex;
+align-items:baseline;
+gap:6px;
+padding:2px 0 15px 0;
+}
+
+.titleText{
+display:inline;
+padding:1px 2px;
+}
+
+.n{
+color:var(--muted);
+font-size: 14px;
+margin-left: 6px;
+}
+
+.hoverMeta{
+position:absolute;
+left:0;
+top: calc(100% - 6px);
+font-size:12px;
+color:var(--muted);
+letter-spacing:0.02em;
+line-height:1.3;
+opacity:0;
+transform: translateY(-2px);
+transition: opacity 140ms ease, transform 140ms ease;
+pointer-events:none;
+white-space:nowrap;
+z-index:2;
+background:var(--bg);
+padding-right:4px;
+}
+
+.entry:hover .hoverMeta{
+opacity:1;
+transform: translateY(0);
+}
+
+.entry[data-cat="Teaching"]:hover .titleText{
+background:#7eb7bd;
+color:#000;
+}
+
+.entry[data-cat="Tools"]:hover .titleText{
+background:#cb2c01;
+color:#fff;
+}
+
+.entry[data-cat="Notes"]:hover .titleText{
+background:#227851;
+color:#fff;
+}
+
+.meta{
+margin-top: 42px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:10px 18px;
+color:var(--muted);
+font-size: 12px;
+letter-spacing:0.06em;
+text-transform:uppercase;
+}
+
+
+/* Overlay test */
+.overlayBackdrop{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.08);
+opacity:0;
+pointer-events:none;
+transition:opacity 180ms ease;
+z-index:40;
+}
+
+.overlayPanel{
+position:fixed;
+top:0;
+right:0;
+height:100vh;
+width:min(60vw, 980px);
+background:#fbfbfa;
+border-left:1px solid var(--hair);
+transform:translateX(100%);
+transition:transform 220ms ease;
+z-index:50;
+box-shadow:-10px 0 36px rgba(0,0,0,.07);
+}
+
+.overlayPanel iframe{
+width:100%;
+height:100%;
+border:0;
+display:block;
+background:#fbfbfa;
+}
+
+.overlayClose{
+position:absolute;
+top:16px;
+right:18px;
+z-index:60;
+border:none;
+background:transparent;
+font:inherit;
+font-size:22px;
+line-height:1;
+cursor:pointer;
+color:var(--muted);
+padding:6px 8px;
+}
+
+body.overlayOpen{
+overflow:hidden;
+}
+
+body.overlayOpen .overlayBackdrop{
+opacity:1;
+pointer-events:auto;
+}
+
+body.overlayOpen .overlayPanel{
+transform:translateX(0);
+}
+
+@media(max-width:900px){
+  .overlayPanel{
+    width:100vw;
+  }
+}
+
+
+.hoverPreview{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+opacity:0;
+transition:opacity .25s ease;
+z-index:70;
+}
+
+.hoverPreview img{
+height:104px;
+width:auto;
+object-fit:cover;
+border:1px solid var(--hair);
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+body.previewVisible .hoverPreview{opacity:1;}
+
+@media(max-width:900px){
+  .hoverPreview{
+    display:none;
+  }
+}
+
+</style>
+
+<link href="./favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="./favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="./favicon-64.png" rel="icon" sizes="64x64" type="image/png"/>
+
+</head>
+
+<body data-mode="Tools">
+
+<main class="wrap">
+
+<div class="top">
+
+<div class="brandRow">
+
+<div class="wordmark">IDEAS, <a href="./about_FINAL_clean_v3.html" data-hover="about">Gilda Manfrin</a></div>
+
+<nav class="nav">
+<a href="./index.html">All</a>
+<a href="./teaching.html">Teaching</a>
+<a href="./tools.html" aria-current="page">Tools</a>
+<a href="./notes.html">Notes</a>
+</nav>
+
+</div>
+
+<div class="hint">
+Teaching, methods and reflections on visual and digital culture
+</div>
+
+<div class="exploreRow">
+<button class="exploreBtn" id="explore">Shuffle</button>
+<button class="modeTag" id="mode" type="button" aria-label="Restore chronological order">Chronological</button>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+
+<div class="group">
+
+<div class="sectionTitle">Index</div>
+
+<div class="index">
+
+<a class="entry" data-cat="Notes" data-date="2025" href="./notes_methodology_tweak_analog_image_research.html" data-overlay="true" data-overlay-src="./notes_methodology_tweak_analog_image_research.html">
+<span class="titleText">Notes — Methodology Tweak: Analog Image Research</span>
+<span class="n">12</span>
+<span class="hoverMeta">Notes · 2025</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2026" href="./guest_lecture_rosa_franjic.html" data-overlay="true" data-overlay-src="./guest_lecture_rosa_franjic.html" data-hover="rosa">
+<span class="titleText">Guest Lecture — Rosa Franjic, Model and Photographer</span>
+<span class="n">8</span>
+<span class="hoverMeta">Guest Lecture · 2026</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2026" href="./guest_lecture_rosie_donoghue.html" data-overlay="true" data-overlay-src="./guest_lecture_rosie_donoghue.html" data-hover="rosie">
+<span class="titleText">Guest Lecture — Rosie Donoghue, un/produced</span>
+<span class="n">7</span>
+<span class="hoverMeta">Guest Lecture · 2026</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2025"  href="./workshop_digital_experiences_ai.html" data-overlay="true" data-overlay-src="./workshop_digital_experiences_ai.html" data-hover="workshop">
+<span class="titleText">Workshop — Designing Digital Experiences With (and Without) AI</span>
+<span class="n">5</span>
+<span class="hoverMeta">Courses · 2025</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2025–current"  href="./course_ied_master_fashion_marketing_content_strategy.html" data-overlay="true" data-overlay-src="./course_ied_master_fashion_marketing_content_strategy.html" data-hover="ied">
+<span class="titleText">Courses — Content Strategy, IED</span>
+<span class="n">4</span>
+<span class="hoverMeta">Teaching · 2025–current · Master in Fashion Marketing</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2026" href="./guest_lecture_natalia_corre.html" data-overlay="true" data-overlay-src="./guest_lecture_natalia_corre.html" data-hover="natalia">
+<span class="titleText">Guest Lecture — Natalia Corre</span>
+<span class="n">6</span>
+<span class="hoverMeta">Guest Lecture · 2026</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2025–current"  href="./course_naba_ba_fmm_digital_strategy.html" data-overlay="true" data-overlay-src="./course_naba_ba_fmm_digital_strategy.html" data-hover="digital">
+<span class="titleText">Courses — Digital Innovation, NABA</span>
+<span class="n">3</span>
+<span class="hoverMeta">Teaching · 2025–current · BA Fashion Design Management</span>
+</a>
+
+<a class="entry" data-cat="Tools" data-date="2025"  href="./tool_research_mood_generator.html" data-overlay="true" data-overlay-src="./tool_research_mood_generator.html" data-hover="mood">
+<span class="titleText">Tool — Mood Generator</span>
+<span class="n">9</span>
+<span class="hoverMeta">Tools · 2025</span>
+</a>
+
+<a class="entry" data-cat="Tools" data-date="2025" href="./tool_customizable_sound_for_focus_and_fun.html" data-overlay="true" data-overlay-src="./tool_customizable_sound_for_focus_and_fun.html" data-hover="dots">
+<span class="titleText">Tool — When Two Dots Collide, They Slightly Alter Each Other</span>
+<span class="n">13</span>
+<span class="hoverMeta">Tools · 2025</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2023–current"  href="./course_naba_ma_fashion_design.html" data-overlay="true" data-overlay-src="./course_naba_ma_fashion_design.html" data-hover="ma">
+<span class="titleText">Courses — Project & Methodology of Visual Communication, NABA</span>
+<span class="n">2</span>
+<span class="hoverMeta">Teaching · 2023–current · MA in Fashion Design</span>
+</a>
+
+<a class="entry" data-cat="Tools" data-date="2025" href="./framework.html" data-overlay="true" data-overlay-src="./framework.html" data-hover="framework">
+<span class="titleText">Tool — Framework: Product / Values / People</span>
+<span class="n">10</span>
+<span class="hoverMeta">Tools · 2025</span>
+</a>
+
+<a class="entry" data-cat="Teaching" data-date="2022–current"  href="./course_naba_master_fashion_digital_marketing.html" data-overlay="true" data-overlay-src="./course_naba_master_fashion_digital_marketing.html" data-hover="course">
+<span class="titleText">Courses — Project Methodology of Visual Communication, NABA</span>
+<span class="n">1</span>
+<span class="hoverMeta">Teaching · 2022–current · Master Fashion Digital Marketing</span>
+</a>
+
+<a class="entry" data-cat="Tools" data-date="2022–2024"  href="./case_study.html" data-overlay="true" data-overlay-src="./case_study.html" data-hover="case">
+<span class="titleText">Case Study — Editorial Identity & Narrative Systems</span>
+<span class="n">11</span>
+<span class="hoverMeta">Tools · 2022–2024 · Case Study</span>
+</a>
+
+
+</div>
+</div>
+
+<div class="meta">
+<div>Contact — gilda@gildamanfrin.com · <a href="https://bureau.gilda-manfrin.com" target="_blank" rel="noopener noreferrer">Bureau_M</a></div>
+<div>© Gilda Manfrin</div>
+</div>
+
+
+
+<div class="hoverPreview" id="hoverPreview" aria-hidden="true">
+  <img id="hoverImg" alt="">
+</div>
+
+<div class="overlayBackdrop" id="overlayBackdrop" aria-hidden="true"></div>
+<div class="overlayPanel" id="overlayPanel" aria-hidden="true">
+  <button class="overlayClose" id="overlayClose" aria-label="Close overlay">×</button>
+  <iframe id="overlayFrame" title="Overlay content" loading="lazy"></iframe>
+</div>
+
+
+</main>
+
+
+
+<script>
+const currentMode = document.body.dataset.mode || 'All'
+const entries = [...document.querySelectorAll('.entry')]
+const shuffleBtn = document.getElementById('explore')
+const modeTag = document.getElementById('mode')
+const index = document.querySelector('.index')
+const originalEntries = [...entries]
+
+const overlayLinks=[...document.querySelectorAll('[data-overlay="true"]')]
+const overlayBackdrop=document.getElementById('overlayBackdrop')
+const overlayPanel=document.getElementById('overlayPanel')
+const overlayFrame=document.getElementById('overlayFrame')
+const overlayClose=document.getElementById('overlayClose')
+
+function setMode(mode){
+  entries.forEach(e=>{
+    const cat=e.dataset.cat
+    e.style.display=(mode==='All'||cat===mode)?'inline-flex':'none'
+  })
+}
+
+function restoreChronological(){
+  index.innerHTML=''
+  originalEntries.forEach(e=>index.appendChild(e))
+  modeTag.textContent='Chronological'
+}
+
+function shuffleEntries(){
+  const visibleEntries=entries.filter(e=>e.style.display!=='none')
+  const hiddenEntries=entries.filter(e=>e.style.display==='none')
+  const shuffled=[...visibleEntries].sort(()=>Math.random()-.5)
+  index.innerHTML=''
+  shuffled.forEach(e=>index.appendChild(e))
+  hiddenEntries.forEach(e=>index.appendChild(e))
+  modeTag.textContent='Restore Chronological'
+}
+
+function openOverlay(src){
+  overlayFrame.src=src
+  document.body.classList.add('overlayOpen')
+  overlayPanel.setAttribute('aria-hidden','false')
+  overlayBackdrop.setAttribute('aria-hidden','false')
+}
+
+function closeOverlay(){
+  document.body.classList.remove('overlayOpen')
+  overlayPanel.setAttribute('aria-hidden','true')
+  overlayBackdrop.setAttribute('aria-hidden','true')
+  window.setTimeout(()=>{ overlayFrame.src=''; }, 220)
+}
+
+shuffleBtn.addEventListener('click',shuffleEntries)
+modeTag.addEventListener('click',()=>{
+  restoreChronological()
+  setMode(currentMode)
+})
+
+overlayLinks.forEach(link=>{
+  link.addEventListener('click',(e)=>{
+    e.preventDefault()
+    openOverlay(link.dataset.overlaySrc || link.getAttribute('href'))
+  })
+})
+
+overlayClose.addEventListener('click',closeOverlay)
+overlayBackdrop.addEventListener('click',closeOverlay)
+window.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape' && document.body.classList.contains('overlayOpen')){
+    closeOverlay()
+  }
+})
+
+const hoverPreview=document.getElementById('hoverPreview')
+const hoverImg=document.getElementById('hoverImg')
+
+const hoverMap={
+  workshop:"./previews/workshop.png",
+  ied:"./previews/ied.png",
+  digital:"./previews/digital.png",
+  dots:"./previews/dots.png",
+  ma:"./previews/ma.png",
+  framework:"./previews/framework.png"
+}
+
+function movePreview(e){
+  const offsetX=24
+  const offsetY=24
+  hoverPreview.style.transform=`translate3d(${e.clientX + offsetX}px, ${e.clientY + offsetY}px, 0)`
+}
+
+document.querySelectorAll('[data-hover]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    const key=el.getAttribute('data-hover')
+    if(!hoverMap[key]) return
+    hoverImg.src=hoverMap[key]
+    document.body.classList.add('previewVisible')
+  })
+  el.addEventListener('mouseleave',()=>{
+    document.body.classList.remove('previewVisible')
+  })
+  el.addEventListener('mousemove',movePreview)
+})
+
+setMode(currentMode)
+restoreChronological()
+setMode(currentMode)
+</script>
+
+
+</body>
+</html>

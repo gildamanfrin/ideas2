@@ -26,6 +26,7 @@
 }
 
 :root{
+  --overlayAccent:#7eb7bd;
   --bg:#fbfbfa;
   --text:#0b0b0b;
   --muted:rgba(0,0,0,.6);
@@ -80,7 +81,85 @@ body{
   margin-left:18px;
 }
 
- .heroHead{
+ 
+.top{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:start;
+  gap:18px 24px;
+  margin-bottom:18px;
+}
+
+.topLeft{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:0;
+  min-width:0;
+}
+
+.topLeft .brandItem,
+.topLeft a{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+.topLeft a.active{
+  color:var(--overlayAccent);
+}
+
+.topLeft > * + *::before{
+  content:" · ";
+  color:var(--muted);
+  margin:0 10px 0 8px;
+}
+
+.topRight{
+  justify-self:start;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:3px;
+}
+
+.backRow{
+  margin:0;
+}
+
+.backRow a{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  display:inline-block;
+  line-height:1.1;
+  position:relative;
+  top:-1px;
+}
+
+.topNote{
+  font-family:"Junicode", serif;
+  font-style:normal;
+  font-size:11px;
+  line-height:1.25;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.heroHead{
+  text-align:center;
+  margin:18px 0 18px;
+}
+
+.heroHead .kicker{
+  margin:0 0 6px;
+}
+
+.heroHead{
   text-align:center;
   margin:30px 0 40px;
 }
@@ -217,6 +296,9 @@ li{margin:0 0 8px;}
 @media(max-width:900px){
   .wrap{padding:54px 22px 90px;}
   h1{font-size:34px;}
+
+  .top{grid-template-columns:1fr;}
+  .topNote{justify-self:start; white-space:normal;}
 }
 </style>
 </head>
@@ -225,10 +307,19 @@ li{margin:0 0 8px;}
 <main class="wrap">
 
   <div class="top">
-    <div class="eyebrow">Teaching · Guest Lecture</div>
-</div>
+    <div class="topLeft">
+      <span class="brandItem">Gilda Manfrin</span>
+      <a href="index.html">Ideas</a>
+      <a href="teaching.html" class="active">Teaching</a>
+    </div>
+    <div class="topRight">
+      <div class="backRow"><a href="teaching.html">← Back</a></div>
+      <div class="topNote">Teaching, methods and reflections on visual and digital culture</div>
+    </div>
+  </div>
 
   <div class="heroHead">
+   <div class="kicker">Teaching</div>
     <h1>Guest Lecture — Natalia Corre (Advance Copy)</h1>
     <div class="sub">Guest lecture · Master in Fashion Digital Marketing · NABA, Milan</div>
   </div>
