@@ -5,35 +5,219 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brand Library — Gilda Manfrin</title>
 <style>
-  @font-face{font-family:'Junicode';src:url('Junicode.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap}
-  @font-face{font-family:'Junicode';src:url('Junicode.woff2') format('woff2');font-weight:300 900;font-style:italic;font-display:swap}
-  @font-face{font-family:'Geist';src:url('GeistMono-Light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+  @font-face{
+    font-family:"ABC Diatype";
+    src:url("./ABCDiatype-Regular.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  @font-face{
+    font-family:"Geist";
+    src:url("GeistMono-Light.woff2") format("woff2");
+    font-weight:300;
+    font-style:normal;
+    font-display:swap;
+  }
+
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{--cream:#fbfbfa;--list-bg:#f2f2f0;--ink:#1a1a18;--ink-light:#5a5a52;--ink-faint:#9a9a8e;--rule:#d8d4c8}
-  body{background:var(--cream);color:var(--ink);font-family:'Geist',sans-serif;font-weight:300;min-height:100vh}
-  header{position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:1px solid var(--rule);padding:2rem 3rem;display:flex;align-items:baseline;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-  .header-left h1{font-family:'Junicode',serif;font-weight:400;font-size:1.3rem;letter-spacing:.02em}
-  .header-left p{font-size:.68rem;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
-  .header-right{font-size:.68rem;color:var(--ink-faint);letter-spacing:.08em;text-align:right;line-height:1.8}
-  .filters{position:sticky;top:73px;z-index:9;background:var(--cream);border-bottom:1px solid var(--rule);padding:1rem 3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}  .filter-btn{background:none;border:1px solid var(--rule);padding:.3rem .8rem;font-family:'Geist',sans-serif;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);cursor:pointer;transition:all .15s}
-  .filter-btn:hover{border-color:var(--ink-light);color:var(--ink)}
-  .filter-btn.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-  .intro{border-bottom:1px solid var(--rule);padding:1.2rem 3rem;font-size:.75rem;color:var(--ink-light);line-height:1.8;background:var(--cream)}
-  @media(max-width:700px){.intro{padding:1rem 1.5rem}}
-  .brand-list{padding:0 3rem;background:var(--list-bg)}
-  .brand-row{display:grid;grid-template-columns:2fr 3fr 1fr;border-bottom:1px solid var(--rule);padding:1rem 0;gap:2rem;align-items:baseline}
-  .brand-row:first-child{border-top:1px solid var(--rule)}
-  .brand-name{font-family:'Junicode',serif;font-size:1.05rem;font-weight:400;letter-spacing:.01em}
-  .brand-name a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
-  .brand-name a:hover{border-bottom-color:var(--ink)}
-  .brand-desc{font-size:.75rem;color:var(--ink-light);line-height:1.7;letter-spacing:.02em}
-  .brand-meta{text-align:right;display:flex;flex-direction:column;gap:.3rem;align-items:flex-end}
-  .brand-city{font-size:.65rem;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase}
-  .brand-tags{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
-  .tag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--rule);padding:.15rem .4rem}
-  .count{font-size:.65rem;color:var(--ink-faint);letter-spacing:.08em;padding:.8rem 3rem;border-top:1px solid var(--rule);background:var(--list-bg)}
+
+  :root{
+    --cream:#fbfbfa;
+    --list-bg:#f2f2f0;
+    --ink:#1a1a18;
+    --ink-light:#5a5a52;
+    --ink-faint:#9a9a8e;
+    --rule:#d8d4c8;
+    --font-title:"ABC Diatype","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Geist",ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    font-weight:300;
+    font-size:13px;
+    min-height:100vh;
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:var(--cream);
+    border-bottom:1px solid var(--rule);
+    padding:2rem 3rem;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:2rem;
+    flex-wrap:wrap;
+  }
+
+  .header-left h1{
+    font-family:var(--font-title);
+    font-weight:400;
+    font-size:1.3rem;
+    letter-spacing:-.02em;
+  }
+
+  .header-left p{
+    font-size:.65rem;
+    color:var(--ink-faint);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    margin-top:.3rem;
+  }
+
+  .header-right{
+    font-size:.65rem;
+    color:var(--ink-faint);
+    letter-spacing:.08em;
+    text-align:right;
+    line-height:1.8;
+  }
+
+  .filters{
+    position:sticky;
+    top:73px;
+    z-index:9;
+    background:var(--cream);
+    border-bottom:1px solid var(--rule);
+    padding:1rem 3rem;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    flex-wrap:wrap;
+  }
+
+  .filter-label{
+    font-size:.65rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+
+  .filter-btn{
+    background:none;
+    border:1px solid var(--rule);
+    padding:.3rem .8rem;
+    font-family:"Geist",monospace;
+    font-size:.62rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    cursor:pointer;
+    transition:all .15s;
+  }
+
+  .filter-btn:hover{
+    border-color:var(--ink-light);
+    color:var(--ink);
+  }
+
+  .filter-btn.active{
+    background:var(--ink);
+    color:var(--cream);
+    border-color:var(--ink);
+  }
+
+  .intro{
+    border-bottom:1px solid var(--rule);
+    padding:1.2rem 3rem;
+    font-size:.72rem;
+    color:var(--ink-light);
+    line-height:1.8;
+    background:var(--cream);
+  }
+
+  .brand-list{
+    padding:0 3rem;
+    background:var(--list-bg);
+  }
+
+  .brand-row{
+    display:grid;
+    grid-template-columns:2fr 3fr 1fr;
+    border-bottom:1px solid var(--rule);
+    padding:1rem 0;
+    gap:2rem;
+    align-items:baseline;
+  }
+
+  .brand-row:first-child{
+    border-top:1px solid var(--rule);
+  }
+
+  .brand-name{
+    font-family:var(--font-title);
+    font-size:1.05rem;
+    font-weight:400;
+    letter-spacing:-.01em;
+  }
+
+  .brand-name a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color .15s;
+  }
+
+  .brand-name a:hover{
+    border-bottom-color:var(--ink);
+  }
+
+  .brand-desc{
+    font-size:.72rem;
+    color:var(--ink-light);
+    line-height:1.75;
+    letter-spacing:.02em;
+  }
+
+  .brand-meta{
+    text-align:right;
+    display:flex;
+    flex-direction:column;
+    gap:.3rem;
+    align-items:flex-end;
+  }
+
+  .brand-city{
+    font-size:.62rem;
+    color:var(--ink-faint);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+
+  .brand-tags{
+    display:flex;
+    gap:4px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  .tag{
+    font-size:.56rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    border:1px solid var(--rule);
+    padding:.15rem .4rem;
+  }
+
+  .count{
+    font-size:.62rem;
+    color:var(--ink-faint);
+    letter-spacing:.08em;
+    padding:.8rem 3rem;
+    border-top:1px solid var(--rule);
+    background:var(--list-bg);
+  }
+
   @media(max-width:700px){
     header,.filters,.brand-list,.count{padding-left:1.5rem;padding-right:1.5rem}
+    .intro{padding:1rem 1.5rem}
     .brand-row{grid-template-columns:1fr;gap:.4rem}
     .brand-meta{align-items:flex-start;text-align:left;flex-direction:row;flex-wrap:wrap;gap:.5rem}
   }
