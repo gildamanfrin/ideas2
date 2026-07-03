@@ -10,8 +10,8 @@
 
 <style>
 @font-face{
-  font-family:"Junicode";
-  src:url("./Junicode.woff2") format("woff2");
+  font-family:"ABC Diatype";
+  src:url("./ABCDiatype-Regular.woff2") format("woff2");
   font-weight:400;
   font-style:normal;
   font-display:swap;
@@ -34,7 +34,8 @@
   --padX:60px;
   --padY:70px;
   --textMax:72ch;
-  --overlayAccent:#cb2c01;
+  --overlayAccent:#777;
+  --font-title:"ABC Diatype","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 *{box-sizing:border-box;}
@@ -45,6 +46,7 @@ body{
   color:var(--text);
   font-family:"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-weight:400;
+  font-size:13px;
   letter-spacing:0.01em;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -57,27 +59,18 @@ body{
 }
 
 .top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:24px;
-  margin-bottom:26px;
-}
-
-.eyebrow{
-  font-size:12px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--overlayAccent);
-}
-
-
-.top{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
   align-items:start;
   gap:18px 24px;
   margin-bottom:18px;
+}
+
+.eyebrow{
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
 }
 
 .topLeft{
@@ -90,7 +83,7 @@ body{
 
 .topLeft .brandItem,
 .topLeft a{
-  font-size:12px;
+  font-size:11px;
   letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--muted);
@@ -120,7 +113,7 @@ body{
 }
 
 .backRow a{
-  font-size:12px;
+  font-size:11px;
   letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--muted);
@@ -132,7 +125,7 @@ body{
 }
 
 .topNote{
-  font-family:"Junicode", serif;
+  font-family:var(--font-title);
   font-style:normal;
   font-size:11px;
   line-height:1.25;
@@ -141,25 +134,21 @@ body{
 }
 
 .heroHead{
-  text-align:center;
-  margin:18px 0 18px;
+  text-align:left;
+  margin:30px 0 40px;
 }
 
 .heroHead .kicker{
   margin:0 0 6px;
 }
 
-.heroHead{
-  text-align:center;
-  margin:30px 0 40px;
-}
-
 h1{
-  font-family:"Junicode", serif;
-  margin:10px auto 10px;
+  font-family:var(--font-title);
+  margin:10px 0 10px;
   font-size:44px;
-  line-height:1.12;
+  line-height:1.08;
   font-weight:400;
+  letter-spacing:-0.03em;
   max-width:32ch;
 }
 
@@ -168,17 +157,17 @@ h1::after{
   display:block;
   width:56px;
   height:2px;
-  margin:14px auto 0;
-  background:var(--overlayAccent);
+  margin:14px 0 0;
+  background:var(--hair);
 }
 
 .sub{
   color:var(--muted);
-  font-size:13px;
+  font-size:12px;
   line-height:1.6;
   max-width:var(--textMax);
-  margin:0 auto;
-  text-align:center;
+  margin:0;
+  text-align:left;
 }
 
 .divider{
@@ -192,7 +181,7 @@ h1::after{
 }
 
 .kicker{
-  font-size:12px;
+  font-size:11px;
   letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--muted);
@@ -216,17 +205,18 @@ h1::after{
 }
 
 .sectionTitle{
-  font-family:"Junicode", serif;
+  font-family:var(--font-title);
   font-size:22px;
   line-height:1.2;
   margin:34px 0 10px;
   font-weight:400;
+  letter-spacing:-0.02em;
 }
 
 p{
   margin:0 0 12px;
-  font-size:14px;
-  line-height:1.62;
+  font-size:13px;
+  line-height:1.65;
   max-width:var(--textMax);
 }
 
@@ -251,8 +241,8 @@ p{
 
 .mini{
   color:var(--muted);
-  font-size:12px;
-  line-height:1.6;
+  font-size:11px;
+  line-height:1.65;
   max-width:var(--textMax);
 }
 
